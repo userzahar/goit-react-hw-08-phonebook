@@ -1,8 +1,8 @@
-import { Form } from "./Form/Form";
-import { ContactList } from "./ContactList/ContactList";
-import { Filter } from "./Filter/Filter";
 import { Route, Routes,NavLink } from "react-router-dom";
 import { Header, NavigationList } from "./App.styled";
+import { Homepage } from "pages/Homepage/Homepage";
+import { Phonebook } from "pages/Phonebook/Phonebook";
+import { Register } from "../pages/Register/Register";
 
 
 export function App() {
@@ -18,11 +18,13 @@ export function App() {
       </nav>
     </Header>
     <main>
-      <h1>Phonebook</h1>
-      <Form />
-      <h2>Contacts</h2>
-    <Filter />
-      <ContactList />
+    <Routes>
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/contacts" element={<Phonebook />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="*" element={<Homepage />}></Route>
+    </Routes>
+
     </main>
     <footer></footer>
   </>
