@@ -1,8 +1,8 @@
 export const UserMenu = () => {
     return <div>
-        <use >
+        {/* <use >
             <svg width="36" height="36"></svg>
-        </use>
+        </use> */}
         <p>mango@mail.com</p>
         <button>Logout</button>
     </div>
