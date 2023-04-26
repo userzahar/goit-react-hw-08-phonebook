@@ -5,12 +5,16 @@ import { Phonebook } from "pages/Phonebook/Phonebook";
 import { Register } from "../pages/Register/Register";
 import { Login } from "pages/Login/Login";
 import { UserMenu } from "./UserMenu/UserMenu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { authOperations } from "redux/auth/thunkAuth";
 
 
 export function App() {
+  const dispatch = useDispatch();
+  useEffect(() =>  {dispatch(authOperations.fetchCurrentUser())} , [dispatch])
+  
   const isLoggedIn = useSelector(state => {
-    console.log(state.auth.isLoggedIn)
     return state.auth.isLoggedIn
   })
   return <>
