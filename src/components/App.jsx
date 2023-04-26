@@ -22,7 +22,7 @@ export function App() {
       <nav>
         <NavigationList>
           <li><NavLink to="/">Home</NavLink></li>
-          {isLoggedIn && <li><NavLink to="/contacts">Contacts</NavLink></li>}
+          <li><NavLink to="/contacts">Contacts</NavLink></li>
           {!isLoggedIn && <>
           <li><NavLink to="/register">Registration</NavLink></li>
           <li><NavLink to="/login">Login</NavLink></li></>}

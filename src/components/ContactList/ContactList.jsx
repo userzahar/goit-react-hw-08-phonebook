@@ -11,7 +11,9 @@ export function ContactList() {
         return state.filter
     });
     const { items, isLoading, error } = useSelector(state => state.contacts.contacts);
-
+    const isLoggedIn = useSelector(state => {
+            return state.auth.isLoggedIn
+    })
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -35,7 +37,7 @@ export function ContactList() {
              }
     return <>
         {isLoading && <h2>IS LOADING....</h2>}
-        {!error && items.length!==0 && <ListStyled>
+        {isLoggedIn && !error && items?.length !== 0 && <ListStyled>
             {filteredContacts()?.map((contact) => (
                 <LI key={contact.id} contact={contact}>
                     <Button text="Delete" clickHeandler={()=>handleDelete(contact.id)}/>
