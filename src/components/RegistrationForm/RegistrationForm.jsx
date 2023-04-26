@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authOperations } from "redux/auth/thunkAuth";
 
 export const RegistrationForm = () => {
@@ -7,13 +7,7 @@ export const RegistrationForm = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const value = useSelector(state => {
-    console.log("💚☎ ~ username:", state.auth.user.username)
-    
-    return state.auth.user.name
-  })
-  console.log("🚀 ~ value:", value)
-
+  
   const heandleChange = ({ target: { name, value } }) => {
     if (name === 'email') setEmail(value);
     if (name === 'password') setPassword(value);
@@ -54,6 +48,5 @@ export const RegistrationForm = () => {
 
   <button type="submit">Зареєструватися</button>
       </form>
-      {value ? <div>{value}</div>:<div>HI</div>}
     </>
 }

@@ -6,7 +6,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  
   const heandleChange = ({ target: { name, value } }) => {
     if (name === 'email') setEmail(value);
     if (name === 'password') setPassword(value);
@@ -38,7 +38,6 @@ export const LoginForm = () => {
 
   <button type="submit">Увійти</button>
       </form>
-      <p>{password }</p>
-      <p>{ email}</p>
+
     </>
 }

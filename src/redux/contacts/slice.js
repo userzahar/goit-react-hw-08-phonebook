@@ -15,15 +15,15 @@ const handleFulfilledGet = (state, { payload }) => {
   state.contacts.error = '';
 };
 const handleFulfilledCreate = (state, { payload }) => {
+  console.log('☎💢💙 ~ payload:', payload);
+
   state.contacts.isLoading = false;
   state.contacts.items.push(payload);
   state.contacts.error = '';
 };
 const handleFulfilledDel = (state, { payload }) => {
   state.contacts.isLoading = false;
-  state.contacts.items = state.contacts.items.filter(
-    el => el.id !== payload.id
-  );
+  state.contacts.items = state.contacts.items.filter(el => el.id !== payload);
   state.contacts.error = '';
 };
 const handleRejected = (state, { payload }) => {

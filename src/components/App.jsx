@@ -5,20 +5,26 @@ import { Phonebook } from "pages/Phonebook/Phonebook";
 import { Register } from "../pages/Register/Register";
 import { Login } from "pages/Login/Login";
 import { UserMenu } from "./UserMenu/UserMenu";
+import { useSelector } from "react-redux";
 
 
 export function App() {
+  const isLoggedIn = useSelector(state => {
+    console.log(state.auth.isLoggedIn)
+    return state.auth.isLoggedIn
+  })
   return <>
     <Header>
       <nav>
         <NavigationList>
           <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/contacts">Contacts</NavLink></li>
+          {isLoggedIn && <li><NavLink to="/contacts">Contacts</NavLink></li>}
+          {!isLoggedIn && <>
           <li><NavLink to="/register">Registration</NavLink></li>
-          <li><NavLink to="/login">Login</NavLink></li>
+          <li><NavLink to="/login">Login</NavLink></li></>}
         </NavigationList>
       </nav>
-      <UserMenu/>
+      {isLoggedIn && <UserMenu/>}
     </Header>
     <main>
     <Routes>

@@ -11,6 +11,11 @@ const handleLogin = (state, { payload }) => {
   state.token = payload.token;
   state.isLoggedIn = true;
 };
+const handleLogout = state => {
+  state.user = { name: null, email: null };
+  state.token = null;
+  state.isLoggedIn = false;
+};
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -24,7 +29,8 @@ export const authSlice = createSlice({
       // .addCase(authOperations.register.pending, handleRegistration)
       .addCase(authOperations.register.fulfilled, handleRegistration)
       // .addCase(authOperations.register.rejected, handleRegistration);
-      .addCase(authOperations.login.fulfilled, handleLogin);
+      .addCase(authOperations.login.fulfilled, handleLogin)
+      .addCase(authOperations.logOut.fulfilled, handleLogout);
   },
 });
 

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   background-color: rgb(213, 208, 204);
-  height: 40px;
-  padding-top: 8px;
+  height: 62px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `;
 
 export const NavigationList = styled.ul`

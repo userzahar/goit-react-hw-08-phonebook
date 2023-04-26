@@ -6,9 +6,9 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
 
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
@@ -22,20 +22,22 @@ const register = createAsyncThunk('auth/register', async credentials => {
 });
 
 const login = createAsyncThunk('auth/login', async credentials => {
-  console.log('🚀 ~ credentials:', credentials);
-
   try {
     const { data } = await axios.post('/users/login', credentials);
     setAuthHeader(data.token);
     return data;
   } catch {}
 });
-// const logOut = createAsyncThunk('auth/logout', async credentials => {
-//   try {
-//   } catch {}
-// });
+
+const logOut = createAsyncThunk('auth/logout', async () => {
+  try {
+    await axios.post('/users/logout');
+    clearAuthHeader();
+  } catch {}
+});
 
 export const authOperations = {
   register,
   login,
+  logOut,
 };

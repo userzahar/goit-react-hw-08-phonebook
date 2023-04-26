@@ -19,9 +19,11 @@ export function Form() {
       alert(`${data.name} is alredy in contacts`)
       return false;
     } else {
+        console.log("🖤💦💖 ~ data:", data)
+        
         const okay = await dispatch(createContactsThunk(data));
         dispatch(getContactsThunk());
-        console.log("💥", okay)
+        console.log(okay)
     }
     }
     // ! -------------------------
@@ -41,7 +43,7 @@ export function Form() {
         e.preventDefault();
         let cteateContact = await createContacts({
             name,
-            phone: number,
+            number,
         })
 
         if (cteateContact === undefined) {
