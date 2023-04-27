@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   background-color: rgb(213, 208, 204);
-  height: 62px;
+  min-height: 62px;
   display: flex;
   justify-content: space-around;
   align-items: center;
