@@ -17,8 +17,14 @@ export const RegistrationForm = () => {
   const heandleSubmit = (e) => {
     e.preventDefault()
     console.log({email, password, name});
-    dispatch(authOperations.register({email, password, name}));
+    dispatch(authOperations.register({ email, password, name }));
+    reset()
   };
+  function reset()  {
+         setEmail('');
+    setPassword('');
+    setName('')
+    }
     return <>
     <FormStyled onSubmit={heandleSubmit}>
   <label>

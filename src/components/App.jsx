@@ -17,7 +17,6 @@ export function App() {
   console.dir(mains?.innerHTML)
   
   const isLoggedIn = useSelector(state => {
-    
     return state.auth.isLoggedIn
   })
   return <>

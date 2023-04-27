@@ -14,8 +14,13 @@ export const LoginForm = () => {
   }
   const heandleSubmit = (e) => {
     e.preventDefault()
-    dispatch(authOperations.login({email, password}));
+    dispatch(authOperations.login({ email, password }));
+    reset();
   };
+  function reset()  {
+         setEmail('');
+         setPassword('');
+    }
 
     return <>
     <FormLoginStyled onSubmit={heandleSubmit}>
