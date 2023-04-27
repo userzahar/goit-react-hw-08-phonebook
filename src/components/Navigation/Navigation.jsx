@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom"
 export const Navigation = () => {
     const isLoggedIn = useSelector(state => {
     return state.auth.isLoggedIn
-  })
+    })
+    
     return<nav>
         <NavigationList>
           <li><NavLink to="/">Home</NavLink></li>

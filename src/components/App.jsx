@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { authOperations } from "redux/auth/thunkAuth";
 import { Navigation } from "./Navigation/Navigation";
+import { RestrictedRoute } from "./RestrictedRoute/RestrictedRoute";
+import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 
 
 export function App() {
@@ -26,11 +28,15 @@ export function App() {
       {isLoggedIn && <UserMenu/>}
     </Header>
     <main>
-    <Routes>
+      
+      <Routes>
         <Route path="/" element={<Homepage />}></Route>
-        <Route path="/contacts" element={<Phonebook />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/contacts"
+          element={<PrivateRoute component={Phonebook} redirectTo={"/login"} />}></Route>
+        <Route path="/register"
+          element={<RestrictedRoute component={Register} redirectTo={"/contacts"} />}></Route>
+        <Route path="/login"
+              element={<RestrictedRoute component={Login} redirectTo={"/contacts"} />}></Route>
         <Route path="*" element={<Homepage />}></Route>
     </Routes>
 

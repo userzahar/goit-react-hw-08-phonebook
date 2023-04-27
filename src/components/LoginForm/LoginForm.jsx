@@ -42,7 +42,7 @@ export const LoginForm = () => {
             onChange={heandleChange} />
   </label>
 
-  <button type="submit">Увійти</button>
+  <button type="submit">Login</button>
       </FormLoginStyled>
 
     </>
