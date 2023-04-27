@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { authOperations } from "redux/auth/thunkAuth";
+import { FormLoginStyled } from "./LoginForm.styled";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ export const LoginForm = () => {
   };
 
     return <>
-    <form onSubmit={heandleSubmit}>
+    <FormLoginStyled onSubmit={heandleSubmit}>
   <label>
-    Електронна пошта:
+    Email:
           <input 
             type="email"
             name="email"
@@ -28,7 +29,7 @@ export const LoginForm = () => {
   </label>
 
   <label>
-    Пароль:
+    Password:
     <input 
             type="password"
             name="password"
@@ -37,7 +38,7 @@ export const LoginForm = () => {
   </label>
 
   <button type="submit">Увійти</button>
-      </form>
+      </FormLoginStyled>
 
     </>
 }

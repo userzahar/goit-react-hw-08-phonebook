@@ -1,5 +1,5 @@
 import { Route, Routes,NavLink } from "react-router-dom";
-import { Header, NavigationList } from "./App.styled";
+import { FooterStyled, Header, NavigationList } from "./App.styled";
 import { Homepage } from "pages/Homepage/Homepage";
 import { Phonebook } from "pages/Phonebook/Phonebook";
 import { Register } from "../pages/Register/Register";
@@ -22,7 +22,7 @@ export function App() {
       <nav>
         <NavigationList>
           <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/contacts">Contacts</NavLink></li>
+          {isLoggedIn && <li><NavLink to="/contacts">Contacts</NavLink></li>}
           {!isLoggedIn && <>
           <li><NavLink to="/register">Registration</NavLink></li>
           <li><NavLink to="/login">Login</NavLink></li></>}
@@ -40,7 +40,7 @@ export function App() {
     </Routes>
 
     </main>
-    <footer></footer>
+    <FooterStyled></FooterStyled>
   </>
 }
  

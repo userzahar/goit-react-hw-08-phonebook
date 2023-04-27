@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "redux/auth/thunkAuth";
+import { FormStyled } from "./RegistrationForm.styled";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,9 @@ export const RegistrationForm = () => {
     dispatch(authOperations.register({email, password, name}));
   };
     return <>
-    <form onSubmit={heandleSubmit}>
+    <FormStyled onSubmit={heandleSubmit}>
   <label>
-    Ім'я:
+    Name:
           <input 
             type="text"
             name="name"
@@ -29,7 +30,7 @@ export const RegistrationForm = () => {
             onChange={heandleChange} />
   </label>
   <label>
-    Електронна пошта:
+    Email:
           <input 
             type="email"
             name="email"
@@ -38,7 +39,7 @@ export const RegistrationForm = () => {
   </label>
 
   <label>
-    Пароль:
+    Password:
     <input 
             type="password"
             name="password"
@@ -46,7 +47,7 @@ export const RegistrationForm = () => {
             onChange={heandleChange} />
   </label>
 
-  <button type="submit">Зареєструватися</button>
-      </form>
+  <button type="submit">Registration</button>
+      </FormStyled>
     </>
 }

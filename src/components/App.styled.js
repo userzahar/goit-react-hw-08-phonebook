@@ -24,3 +24,13 @@ export const NavigationList = styled.ul`
     color: #000b5b;
   }
 `;
+export const FooterStyled = styled.footer`
+  background-color: rgb(213, 208, 204);
+  min-height: 62px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+`;
