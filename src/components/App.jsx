@@ -1,5 +1,5 @@
-import { Route, Routes,NavLink } from "react-router-dom";
-import { FooterStyled, Header, NavigationList } from "./App.styled";
+import { Route, Routes } from "react-router-dom";
+import { FooterStyled, Header } from "./App.styled";
 import { Homepage } from "pages/Homepage/Homepage";
 import { Phonebook } from "pages/Phonebook/Phonebook";
 import { Register } from "../pages/Register/Register";
@@ -8,6 +8,7 @@ import { UserMenu } from "./UserMenu/UserMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { authOperations } from "redux/auth/thunkAuth";
+import { Navigation } from "./Navigation/Navigation";
 
 
 export function App() {
@@ -21,15 +22,7 @@ export function App() {
   })
   return <>
     <Header>
-      <nav>
-        <NavigationList>
-          <li><NavLink to="/">Home</NavLink></li>
-          {isLoggedIn && <li><NavLink to="/contacts">Contacts</NavLink></li>}
-          {!isLoggedIn && <>
-          <li><NavLink to="/register">Registration</NavLink></li>
-          <li><NavLink to="/login">Login</NavLink></li></>}
-        </NavigationList>
-      </nav>
+    <Navigation/>
       {isLoggedIn && <UserMenu/>}
     </Header>
     <main>
