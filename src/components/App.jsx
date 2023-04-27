@@ -13,8 +13,11 @@ import { authOperations } from "redux/auth/thunkAuth";
 export function App() {
   const dispatch = useDispatch();
   useEffect(() =>  {dispatch(authOperations.fetchCurrentUser())} , [dispatch])
+  const mains = document.querySelector("main");
+  console.dir(mains?.innerHTML)
   
   const isLoggedIn = useSelector(state => {
+    
     return state.auth.isLoggedIn
   })
   return <>

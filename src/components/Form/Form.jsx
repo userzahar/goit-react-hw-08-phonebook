@@ -3,7 +3,7 @@ import { Button } from "components/Button/Button";
 import { LabelStyled } from "components/Filter/FilterStyled";
 import { nanoid } from "nanoid";
 import { useState } from "react";
-import { InputStyled } from "./StyledInput";
+import { FormStyled, InputStyled } from "./StyledInput";
 import { useDispatch, useSelector } from "react-redux";
 import { createContactsThunk, getContactsThunk } from "redux/contacts/thunk";
 
@@ -56,7 +56,7 @@ export function Form() {
          setName('');
          setNumber('');
     }
-        return <form onSubmit={handleSubmit}>
+        return <FormStyled onSubmit={handleSubmit}>
             <LabelStyled htmlFor={inputId}>Name</LabelStyled>
             <InputStyled
                 type="text"
@@ -81,7 +81,7 @@ export function Form() {
                 id={inputIdNew}
             />
             <Button text="Add Contact" />
-        </form>
+        </FormStyled>
 
     
 }

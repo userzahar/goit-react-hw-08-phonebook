@@ -1,5 +1,5 @@
 import { InputStyled } from "components/Form/StyledInput";
-import { LabelStyled } from "./FilterStyled";
+import { FilterThumb, LabelStyled } from "./FilterStyled";
 
 import { useDispatch } from "react-redux";
 import { filterContacts } from "redux/filter/filterSlice";
@@ -13,10 +13,10 @@ export function Filter() {
       dispatch(filterContacts(value))
     }
   }
-        return <>
+        return <FilterThumb>
             <LabelStyled htmlFor="filter">Find Contacts By Name </LabelStyled>
             <InputStyled type="text" id="filter" name="filter" onChange={handleChange} />
-        </>
+        </FilterThumb>
 }
 
 
